@@ -5,6 +5,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+# Ensure output directory exists
+os.makedirs("outputs", exist_ok=True)
+
 # Image dataset (adjust filenames if needed)
 images = {
     "Original": "images/original.jpg",
