@@ -161,4 +161,5 @@ they simply change the medium in a way that makes it disappear.
 - Extend analysis with LSB visualization
 
 📄 License
+
 This project is for educational and research purposes.
