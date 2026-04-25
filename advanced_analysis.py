@@ -1,19 +1,53 @@
-# Path: steganography-analysis/advanced_analysis.py
-
+import os
+import sys
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
-# Ensure output directory exists
-os.makedirs("outputs", exist_ok=True)
+OUTPUT_DIR = "outputs"
 
-# Image dataset (adjust filenames if needed)
 images = {
     "Original": "images/original.jpg",
     "WhatsApp": "images/whatsapp.jpg",
-    "Document": "images/document.jpg"
+    "Document": "images/document.jpg",
 }
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+
+def validate_required_files(required_files):
+    missing_files = [
+        path for path in required_files.values()
+        if not os.path.exists(path)
+    ]
+
+    if not missing_files:
+        return
+
+    print("\nMissing required image files:\n")
+
+    for path in missing_files:
+        print(f"  - {path}")
+
+    print(
+        "\nBefore running this analysis, make sure you have:\n"
+        "  1. images/original.jpg  -> the original image with hidden data\n"
+        "  2. images/whatsapp.jpg  -> the image sent and downloaded via WhatsApp as media\n"
+        "  3. images/document.jpg  -> the same image sent and downloaded as a document\n\n"
+        "Example workflow:\n"
+        "  mkdir -p images payload outputs\n"
+        "  cp /path/to/your/image.jpg images/original.jpg\n"
+        "  echo 'CONFIDENTIAL DATA - STEGANOGRAPHY TEST' > payload/secret.txt\n"
+        "  steghide embed -cf images/original.jpg -ef payload/secret.txt\n\n"
+        "Then send images/original.jpg through WhatsApp twice:\n"
+        "  - once as a regular image, save it as images/whatsapp.jpg\n"
+        "  - once as a document, save it as images/document.jpg\n"
+    )
+
+    sys.exit(1)
+
+
+validate_required_files(images)
 
 def calculate_entropy(image):
     """

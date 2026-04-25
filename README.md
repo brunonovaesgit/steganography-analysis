@@ -116,7 +116,63 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+🧪 Prepare the Experiment
+
+Before running the analysis, you need to prepare the input files.
+
+1. Add an original image
+
+Copy any image into the project:
+```bash
+cp /path/to/your/image.jpg images/original.jpg
+```
+
+
+2. Create a hidden message
+```bash
+echo "CONFIDENTIAL DATA - STEGANOGRAPHY TEST" > payload/secret.txt
+```
+
+
+3. Embed the hidden data
+```bash
+steghide embed -cf images/original.jpg -ef payload/secret.txt
+```
+
+## 🔐 About the Passphrase
+
+Steghide uses a passphrase to optionally encrypt the embedded data.
+
+During the embedding process, you will be asked to:
+- Enter a passphrase
+- Confirm the passphrase
+
+For this experiment, you can use a simple value such as:
+```bash
+123
+```
+
+When extracting the data later, the same passphrase will be required.
+
+
+4. WhatsApp test
+```bash
+Send images/original.jpg using WhatsApp in two ways:
+```
+
+🔴 As Image
+- Send via gallery
+- Download and save as:
+- images/whatsapp.jpg
+
+🟢 As Document
+- Send as file attachment
+- Download and save as:
+- images/document.jpg
+
 ▶️ Run
+
+Now you can run the analysis:
 ```bash
 python advanced_analysis.py
 ```
