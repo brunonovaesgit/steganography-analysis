@@ -103,6 +103,7 @@ steganography-analysis/
 └── README.md
 ```
 
+
 ⚙️ Setup
 
 Create a virtual environment:
@@ -119,6 +120,7 @@ pip install -r requirements.txt
 🧪 Prepare the Experiment
 
 Before running the analysis, you need to prepare the input files.
+
 
 1. Add an original image
 
@@ -170,12 +172,14 @@ Send images/original.jpg using WhatsApp in two ways:
 - Download and save as:
 - images/document.jpg
 
+
 ▶️ Run
 
 Now you can run the analysis:
 ```bash
 python advanced_analysis.py
 ```
+
 
 📈 Output
 
@@ -193,6 +197,7 @@ The generated files include:
 - Hidden data is destroyed when the image is recompressed
 - Hidden data survives when the file is sent as a document
 
+
 🎯 Key Insight
 
 Hidden data is not detected.
@@ -202,16 +207,19 @@ It is destroyed by transformation.
 Modern systems do not need to identify hidden information —
 they simply change the medium in a way that makes it disappear.
 
+
 ⚠️ Notes
 - Image dimensions may change after WhatsApp processing
 - Differences are often invisible to the human eye
 - Analysis reveals structural changes at pixel level
+
 
 🚀 Future Improvements
 - Test compression-resistant steganography techniques
 - Analyze frequency-domain embedding (DCT-based methods)
 - Integrate automated experiment pipeline
 - Extend analysis with LSB visualization
+
 
 📄 License
 
