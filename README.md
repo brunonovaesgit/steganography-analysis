@@ -123,12 +123,9 @@ python advanced_analysis.py
 
 📈 Output
 
-The script generates:
-```bash
-outputs/analysis_result.png
-```
+This folder is created automatically during execution.
 
-Including:
+The generated files include:
 - Image comparison
 - Pixel difference visualization
 - RGB histograms
